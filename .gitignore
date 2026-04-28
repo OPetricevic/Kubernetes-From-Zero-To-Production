@@ -1,0 +1,43 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+/product-service
+/order-service
+/user-service
+/notification-service
+
+# Go
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.tar
+
+# Kubernetes
+kubeconfig
+
+# Test payloads (curl data files)
+body.json
+order.json
+patch.json
+register.json
+
+# Conversation exports
+ConversationOne.md
+
+# Personal progress log
+docs/progress-log.md
+
+# Kiro
+.kiro/

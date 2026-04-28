@@ -1,0 +1,50 @@
+# Order Service can:
+# - Receive traffic from Ingress
+# - Talk to PostgreSQL, Product Service, and RabbitMQ
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-order-service
+  namespace: shopstream
+spec:
+  podSelector:
+    matchLabels:
+      app: order-service
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - port: 8082
+  egress:
+    # To PostgreSQL
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              project: shopstream
+          podSelector:
+            matchLabels:
+              app: postgres
+      ports:
+        - port: 5432
+    # To Product Service (service-to-service call)
+    - to:
+        - podSelector:
+            matchLabels:
+              app: product-service
+      ports:
+        - port: 8081
+    # To RabbitMQ
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              project: shopstream
+          podSelector:
+            matchLabels:
+              app: rabbitmq
+      ports:
+        - port: 5672

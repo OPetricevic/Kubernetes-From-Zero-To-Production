@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notification-config
+  namespace: shopstream
+data:
+  RABBITMQ_HOST: rabbitmq.shopstream-data.svc.cluster.local
+  RABBITMQ_PORT: "5672"

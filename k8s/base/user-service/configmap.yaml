@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-config
+  namespace: shopstream
+data:
+  DB_NAME: shopstream
+  DB_HOST: postgres.shopstream-data.svc.cluster.local
+  DB_PORT: "5432"

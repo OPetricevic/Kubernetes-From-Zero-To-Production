@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-config
+  namespace: shopstream
+data:
+  DB_NAME: shopstream
+  DB_HOST: postgres.shopstream-data.svc.cluster.local
+  DB_PORT: "5432"
+  PRODUCT_SERVICE_URL: http://product-service.shopstream.svc.cluster.local
+  RABBITMQ_HOST: rabbitmq.shopstream-data.svc.cluster.local
+  RABBITMQ_PORT: "5672"

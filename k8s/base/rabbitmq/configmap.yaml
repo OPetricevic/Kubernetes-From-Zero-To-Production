@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-config
+  namespace: shopstream-data
+data:
+  RABBITMQ_DEFAULT_VHOST: /

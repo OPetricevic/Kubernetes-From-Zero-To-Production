@@ -1,0 +1,24 @@
+# Notification Service can:
+# - Talk to RabbitMQ only (it's a consumer, no inbound traffic needed except probes)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-notification-service
+  namespace: shopstream
+spec:
+  podSelector:
+    matchLabels:
+      app: notification-service
+  policyTypes:
+    - Egress
+  egress:
+    # To RabbitMQ
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              project: shopstream
+          podSelector:
+            matchLabels:
+              app: rabbitmq
+      ports:
+        - port: 5672
