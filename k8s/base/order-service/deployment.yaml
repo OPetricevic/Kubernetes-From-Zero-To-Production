@@ -17,6 +17,7 @@ spec:
     spec:
       serviceAccountName: order-service
       automountServiceAccountToken: false
+      priorityClassName: critical
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000

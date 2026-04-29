@@ -3,6 +3,9 @@ kind: Kustomization
 
 resources:
   - namespaces.yaml
+  - resource-quota.yaml
+  - limit-range.yaml
+  - priority-classes.yaml
 
   # Data layer
   - postgres/statefulset.yaml

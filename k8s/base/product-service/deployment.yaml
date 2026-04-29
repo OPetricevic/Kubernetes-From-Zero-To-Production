@@ -17,6 +17,7 @@ spec:
     spec:
       serviceAccountName: product-service
       automountServiceAccountToken: false
+      priorityClassName: critical
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
