@@ -14,12 +14,22 @@ patches:
         path: /spec/replicas
         value: 1
   - target:
+      kind: HorizontalPodAutoscaler
+      name: product-service-hpa
+    patch: |
+      - op: replace
+        path: /spec/minReplicas
+        value: 1
+      - op: replace
+        path: /spec/maxReplicas
+        value: 2
+  - target:
       kind: Deployment
       name: order-service
     patch: |
       - op: replace
         path: /spec/replicas
-        value: 1
+        value: 2
   - target:
       kind: Deployment
       name: user-service
