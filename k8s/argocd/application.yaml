@@ -18,3 +18,4 @@ spec:
       selfHeal: true     # Revert manual cluster changes back to Git state
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
