@@ -15,14 +15,25 @@ spec:
       labels:
         app: product-service
     spec:
+      serviceAccountName: product-service
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       # Init container runs DB migrations before the app starts.
-      # It uses the same image but with the "migrate" argument.
-      # The main container won't start until this completes successfully.
       initContainers:
         - name: db-migrate
           image: product-service:v2
           imagePullPolicy: Never
           command: ["./product-service", "migrate"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           env:
             - name: DB_HOST
               valueFrom:
@@ -52,7 +63,13 @@ spec:
       containers:
         - name: product-service
           image: product-service:v2
-          imagePullPolicy: Never    # Use local image (kind)
+          imagePullPolicy: Never
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           ports:
             - containerPort: 8081
           env:

@@ -23,18 +23,22 @@ resources:
   - product-service/secret.yaml
   - product-service/hpa.yaml
   - product-service/pdb.yaml
+  - product-service/rbac.yaml
   - order-service/deployment.yaml
   - order-service/service.yaml
   - order-service/configmap.yaml
   - order-service/secret.yaml
+  - order-service/rbac.yaml
   - user-service/deployment.yaml
   - user-service/service.yaml
   - user-service/configmap.yaml
   - user-service/secret.yaml
+  - user-service/rbac.yaml
   - notification-service/deployment.yaml
   - notification-service/service.yaml
   - notification-service/configmap.yaml
   - notification-service/secret.yaml
+  - notification-service/rbac.yaml
 
   # Networking
   - ingress/ingress.yaml

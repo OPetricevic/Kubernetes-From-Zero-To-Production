@@ -71,6 +71,16 @@ helm/                   # Helm values files
 4. The Go code is already written — your focus is on the Kubernetes manifests and operations
 5. Break things on purpose. That's where the real learning happens.
 
+## Screenshots
+
+**Grafana — Kubernetes namespace dashboard (CPU/memory per pod):**
+
+![Grafana Dashboard](./docs/images/shopstreamPods.png)
+
+**Grafana — Loki centralized logging:**
+
+![Loki Logs](./docs/images/lokiGrafana.png)
+
 ## Documentation
 
 - [Why Kubernetes?](./docs/why-kubernetes.md) — The real-world problems K8s solves

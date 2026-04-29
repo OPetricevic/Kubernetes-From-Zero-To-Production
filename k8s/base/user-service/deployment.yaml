@@ -15,11 +15,24 @@ spec:
       labels:
         app: user-service
     spec:
+      serviceAccountName: user-service
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       initContainers:
         - name: db-migrate
           image: user-service:v1
           imagePullPolicy: Never
           command: ["./user-service", "migrate"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           env:
             - name: DB_HOST
               valueFrom:
@@ -50,6 +63,12 @@ spec:
         - name: user-service
           image: user-service:v1
           imagePullPolicy: Never
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           ports:
             - containerPort: 8083
           env:
