@@ -24,6 +24,7 @@ Work through these in order. Each phase builds on the previous one.
 | 7 | [Observability](./phases/phase-7-observability.md) — Prometheus + Grafana + Loki |
 | 8 | [Security](./phases/phase-8-security.md) — RBAC + pod security + sealed secrets |
 | 9 | [Production](./phases/phase-9-production.md) — TLS + cluster autoscaler + quotas |
+| 10 | [Live Deployment](./phases/phase-10-live-deployment.md) — Oracle Cloud + public endpoint |
 
 ## Reference
 

@@ -29,6 +29,7 @@ The Go code is intentionally simple (single `main.go` per service). The complexi
 | 7 | Observability | Prometheus, Grafana, Loki, Jaeger, DaemonSets, ServiceMonitors |
 | 8 | Security hardening | RBAC, ServiceAccounts, Pod Security, Sealed Secrets |
 | 9 | Production readiness | Taints/Tolerations, Cluster Autoscaler, cert-manager, Resource Quotas |
+| 10 | Live cloud deployment | Oracle Cloud (OKE), container registry, TLS, public endpoint |
 
 ## Prerequisites
 
@@ -70,6 +71,7 @@ helm/                   # Helm values files
 3. Each phase guide explains what to do, what K8s concepts you're learning, and why they matter
 4. The Go code is already written — your focus is on the Kubernetes manifests and operations
 5. Break things on purpose. That's where the real learning happens.
+6. Phase 10 deploys everything to Oracle Cloud Free Tier — your app goes live for real
 
 ## Screenshots
 
